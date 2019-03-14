@@ -1,0 +1,15 @@
+
+{
+  "navigationBarTitleText": "D1M",
+    "usingComponents":
+    {
+      "w-page": "../../component/page/index",
+		  "w-loading": "../../component/loading/index",
+      "w-button": "../../component/button/index",
+      "money": "../../component/currency/index",
+      "w-product-sku": "../../component/module/product-sku/index",
+      "w-product-fav": "../../component/module/product-fav/index",
+      "w-product-card": "../../component/module/product-card/index",
+      "w-collapse": "../../component/collapse/index"
+    }
+}

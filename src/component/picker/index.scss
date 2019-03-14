@@ -1,0 +1,56 @@
+.picker {
+    .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .box {
+            position: relative;
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: 9;
+                width: 0;
+                height: 0;
+                right: 20rpx;
+                top: 35rpx;
+                border-right: solid 8rpx transparent;
+                border-top: solid 8rpx #666;
+                border-left: solid 8rpx transparent;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                z-index: 9;
+                width: 0;
+                height: 0;
+                right: 20rpx;
+                top: 25rpx;
+                border-left: solid 8rpx transparent;
+                border-bottom: solid 8rpx #666;
+                border-right: solid 8rpx transparent;
+            }
+            input {
+                border: 0;
+                background: #fff;
+                height: 40rpx;
+                border: 1rpx solid #000;
+                padding: 12rpx 20rpx;
+                font-size: 24rpx;
+            }
+            .placeholder {
+                color: #666;
+                font-size: 24rpx;
+            }
+        }
+    }
+    .selector{
+        .box{
+            width: 100%;
+        }
+    }
+    .region{
+        .box{
+            width: 210rpx;
+        }
+    }
+}

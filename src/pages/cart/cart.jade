@@ -1,0 +1,74 @@
+w-page(
+  isTabbar="true"
+  class="w-page"
+  show!="{{$show && list.length == 0}}"
+)
+  view(
+    slot="main"
+    class="page-main"
+  )
+    view.content
+      view.item(
+        wx:for="{{list}}"
+        wx:key="{{index}}"
+      )
+        view.box
+          w-checkbox(
+            data-index="{{index}}"
+            disabled="{{item.disabled}}"
+            checked="{{item.status}}"
+            bindemitevent="checkedEmitEventer"
+          )
+        view.box
+          image(
+            data-path="detail/detail?id={{item.productId}}"
+            bindtap="$routeLink"
+            mode="widthFix"
+            src="https://dummyimage.com/400x600/ffbb12/fff"
+          )
+        view.box
+          view.desc
+            text {{item.productName}}
+            text {{item.subTitle}}
+            text {{item.sku}}
+          view.quantity
+            w-stepper(
+              stepper="{{item.quantity}}"
+              max="{{item.stock}}"
+              data-id="{{item.id}}"
+              data-index="{{index}}"
+              bindemitevent="updateEmitEventer"
+            )
+            money(
+              value="{{item.salesPrice}}"
+            )
+        view.box
+          view.del(
+            data-id="{{item.id}}"
+            bindtap="deleteEventer"
+          )
+            text 移除
+  view(
+    slot="footer"
+    class="page-footer"
+  )
+    view.section
+      view.box
+        w-checkbox(
+          checked="{{checkedAll}}"
+          label="全部"
+          bindemitevent="checkedEmitAllEventer"
+        )
+      view.box
+        text 总计:
+        money(value="{{totalAmount}}")
+    view.section
+      w-button(
+        class="w-button"
+        disabled="{{totalCount == 0}}"
+        bindemiteventer="checkoutEmitEventer"
+      )
+        text 结算({{totalCount}})
+w-loading(
+  show="{{$show}}"
+)

@@ -1,0 +1,10 @@
+echo '「 提交规范 」';
+echo ' 1. branch';
+echo '     1. feature/{{品牌名}}-{{ticketId}}';
+echo ' 2. commit';
+echo '     1. A  新增xxx';
+echo '     2. F  修复xxx';
+echo '     3. U  更新xxx';
+echo ' 3. release';
+echo '     1. release-v1.0.0(版本和小程序上传版本一致,上传一次打一次tag)';
+echo ' 4. 小程序提交体验版命名  {{品牌名字}}-{{日期}}-{{环境}}';

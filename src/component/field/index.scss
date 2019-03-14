@@ -1,0 +1,20 @@
+.field {
+    .field-inner {
+        .label {
+            color: #000;
+            padding-bottom: 20rpx;
+            font-size: 26rpx;
+        }
+        .errMsg {
+            height: 0;
+            overflow: hidden;
+            font-size: 22rpx;
+            color: #f00;
+            transition: height .3s;
+            &.active {
+            	padding: 8rpx 0;
+            	height: 30rpx;
+            }
+        }
+    }
+}

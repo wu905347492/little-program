@@ -1,0 +1,15 @@
+view.page-container(
+    style="padding-bottom: {{pageBottom}}rpx"
+  )
+  view.page-header
+  view.page-content
+    slot(
+      wx:if="{{!show}}"
+      name="main"
+    )
+  view.page-footer(
+    style="padding-bottom: {{fixedBottom}}rpx"
+  )
+    slot(name="footer")
+    w-tabbar(wx:if="{{isTabbar}}")
+

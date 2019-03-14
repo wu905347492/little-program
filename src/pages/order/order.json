@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "ORDER",
+    "usingComponents":
+    {
+        "w-button": "../../component/button/index",
+        "money": "../../component/currency/index",
+        "transition": "../../component/transition/index"
+    }
+}

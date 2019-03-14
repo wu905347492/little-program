@@ -1,0 +1,42 @@
+view(
+    class="product-sku"
+)
+    view.colors(
+        wx:if!="{{colors.length > 0}}"
+    )
+        view.title 颜色
+        scroll-view(
+            class="scroll-view"
+            scroll-x
+        )
+            view.list
+                view.item(
+                    wx:for="{{colors}}"
+                    wx:key="{{index}}"
+                    data-value="{{item}}"
+                    class="{{item.name == color.name ? 'active' : ''}} {{item.disabled ? 'disabled' : ''}}"
+                    data-type="color"
+                    bindtap="selectEventer"
+                )
+                    image(
+                        src="http://placeholder.qiniudn.com/375x400/f0f0f0/999"
+                        mode="widthFix"
+                    )
+    view.sizes(
+        wx:if!="{{sizes.length > 0}}"
+    )
+        view.title 尺码
+        scroll-view(
+            class="scroll-view"
+            scroll-x
+        )
+            view.list
+                view.item(
+                    wx:for="{{sizes}}"
+                    wx:key="{{index}}"
+                    data-value="{{item}}"
+                    class="{{item.name == size.name ? 'active' : ''}} {{item.disabled ? 'disabled' : ''}}"
+                    data-type="size"
+                    bindtap="selectEventer"
+                )
+                    text {{item.name}}

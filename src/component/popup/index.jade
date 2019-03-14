@@ -1,0 +1,16 @@
+view.popup(
+	class="popup--{{type}}"
+    hidden="{{ !visible }}"
+    style="z-index: {{zIndex}}"
+)
+    view.popup-backdrop(
+        catchtouchmove="ture"
+    	bindtap="clickCloseBackdrop"
+        hidden="{{ !visible }}"
+        class="{{animatecls[1]}}"
+    )
+    view.popup-content(
+        class="{{animatecls[0]}}"
+        style="margin-{{type}}:{{distance}}rpx"
+    )
+        slot

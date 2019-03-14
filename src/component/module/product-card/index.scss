@@ -1,0 +1,30 @@
+.product-card {
+    position: relative;
+    text-align: center;
+    padding: 20rpx 15rpx;
+    .image {
+        image {
+            width: 100%;
+        }
+    }
+    .desc,
+    .price {
+        text {
+            font-size: 24rpx;
+            display: block;
+            line-height: 1.4;
+            margin: 0 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .fav {
+        position: absolute;
+        top: 40rpx;
+        right: 40rpx;
+        width: 50rpx;
+        height: 50rpx;
+    }
+}

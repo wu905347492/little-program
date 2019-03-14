@@ -1,0 +1,20 @@
+view(
+    class="product-card"
+)
+    view.image
+        image(
+            src="http://placeholder.qiniudn.com/375x400/f0f0f0/999"
+            mode="widthFix"
+        )
+    view.fav(
+        wx:if="{{showFav}}"
+    )
+        w-product-fav(
+            productId="{{value.productId}}"
+            isFav!="{{!!value.inWishList}}"
+        )
+    view.desc
+        text Title
+        text subTitle
+    view.price
+        money(value="999999")

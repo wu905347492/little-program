@@ -1,0 +1,21 @@
+view.radio-field(
+    bindtap="checkedEventer"
+)
+    view.radio(
+        wx:if="{{showIcon}}"
+    )
+        view(
+            wx:if="{{!disabled}}"
+        )
+            view.icon.icon-unchecked
+            view.icon(
+                class="{{checked ? 'icon-checked' : ''}}"
+            )
+        view(wx:else)
+            view.icon(
+                class="icon-dischecked"
+            )
+    view.label-text(
+        wx:if="{{label}}"
+    )
+        text {{label}}

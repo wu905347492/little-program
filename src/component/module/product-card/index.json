@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+    	"money": "../../currency/index",
+    	"w-product-fav": "../product-fav/index"
+    },
+    "component": true
+}

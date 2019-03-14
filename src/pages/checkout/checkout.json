@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "CHECKOUT",
+  "usingComponents": {
+    "money": "../../component/currency/index",
+    "w-input": "../../component/input/index",
+    "w-field": "../../component/field/index",
+    "w-picker": "../../component/picker/index",
+    "w-field-group": "../../component/field-group/index",
+    "w-button": "../../component/button/index",
+    "w-checkbox": "../../component/checkbox/index",
+    "w-checkbox-group": "../../component/checkbox-group/index",
+    "w-textarea": "../../component/textarea/index",
+    "w-authcode": "../../component/module/authcode/index",
+    "w-radio": "../../component/radio/index",
+    "w-radio-group": "../../component/radio-group/index"
+  }
+}

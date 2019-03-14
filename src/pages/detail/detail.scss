@@ -1,0 +1,167 @@
+.w-page {
+  width: 100vw;
+  height: 100vh;
+
+  .page-main {
+    .section {
+      border-bottom: 1rpx solid #eee;
+      padding-bottom: 40rpx;
+    }
+
+    .banner {
+      position: relative;
+
+      .swiper {
+        width: 100%;
+        height: 650rpx;
+
+        .swiper-item {
+          .swiper-image {
+            padding: 50rpx 100rpx;
+          }
+        }
+      }
+
+      .left-side {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100rpx;
+        height: 100%;
+        padding: 50rpx 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        button {
+          background: transparent;
+          font-size: 20rpx;
+
+          image {
+            width: 40rpx;
+            height: 40rpx
+          }
+
+          text {
+            display: block;
+            color: #999;
+          }
+        }
+      }
+    }
+
+    .detail {
+      padding: 40rpx;
+
+      .section:first-child {
+        text-align: center;
+
+        .title {
+          font-size: 32rpx;
+          padding-bottom: 5rpx;
+        }
+
+        .subTitle {
+          font-size: 24rpx;
+          color: #999;
+        }
+      }
+
+      .section:last-child {
+        display: flex;
+        justify-content: space-around;
+        font-size: 28rpx;
+        padding-top: 40rpx;
+      }
+    }
+
+    .sku {
+      padding: 0 40rpx;
+    }
+
+    .collapse {
+      padding: 0 40rpx;
+
+      .section {
+        padding: 28rpx 0;
+
+        .col-title {
+          font-size: 28rpx;
+        }
+
+        .col-content {
+          padding-top: 30rpx;
+          font-size: 24rpx;
+          color: #666;
+
+          text {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .explore {
+      padding: 40rpx;
+
+      .title {
+        font-size: 28rpx;
+        padding-bottom: 30rpx;
+      }
+
+      .list {
+        white-space: nowrap;
+
+        .item {
+          width: 335rpx;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .page-footer {
+    display: flex;
+    font-size: 0;
+
+    .w-button {
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        width: 100rpx;
+        height: 100rpx;
+
+        button {
+          padding: 15rpx 0;
+          background: transparent;
+          font-size: 20rpx;
+
+          image {
+            width: 40rpx;
+            height: 40rpx
+          }
+
+          text {
+            display: block;
+            color: #999;
+            height: 30rpx;
+            line-height: 30rpx;
+          }
+        }
+      }
+
+      &:nth-child(4),
+      &:nth-child(5) {
+        flex: 1;
+
+        button {
+          height: 100rpx;
+          line-height: 100rpx;
+          font-size: 28rpx;
+        }
+      }
+    }
+  }
+}

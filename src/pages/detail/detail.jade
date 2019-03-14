@@ -1,0 +1,149 @@
+w-page(
+  class="w-page"
+  show!="{{$show && list.length == 0}}"
+)
+  view(
+    slot="main"
+    class="page-main"
+  )
+    view.banner
+      swiper(
+        class="swiper"
+        duration="500"
+        circular="{{true}}"
+        indicator-dots="{{true}}"
+        bindchange="changeEventer"
+        current="{{current}}"
+        indicator-color="rgba(0, 0, 0, .3)"
+        indicator-active-color="rgba(0, 0, 0, .6)"
+      )
+        swiper-item(
+          class="swiper-item"
+          wx:for="{{images}}"
+          wx:key="{{index}}"
+        )
+          view.swiper-image
+            image(
+              src="https://dummyimage.com/750x750/ffbb12/fff"
+              mode="widthFix"
+            )
+      view.left-side
+        w-button(
+          openType="share"
+        )
+          image(
+            src="https://dummyimage.com/100x100/ffbb12/fff"
+            mode="widthFix"
+          )
+          text 分享
+        w-button(
+          bindemiteventer="previewEmitEventer"
+          class="preview"
+        )
+          image(
+            src="https://dummyimage.com/100x100/ffbb12/fff"
+            mode="widthFix"
+          )
+          text 查看
+    view.detail
+      view.section
+        view.title 我去前面探探路
+        view.subTitle 提莫队长正在送命
+      view.section
+        view.box
+          money(value="999999")
+        view.box
+          w-product-fav(
+            wx:if="{{detail.productId}}"
+            productId="{{detail.productId}}"
+            isFav!="{{!!detail.inWishList}}"
+          )
+    view.sku
+      view.section
+        w-product-sku(
+          wx:if!="{{variationProducts.length != 0}}"
+          value="{{variationProducts}}"
+          bindemiteventer="skuEmitEventer"
+        )
+    view.collapse
+      view.section
+        w-collapse
+            view.col-title(slot="title")
+                text 详细特征
+            view.col-content(slot="content")
+                text -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n
+      view.section
+          w-collapse
+            view.col-title(slot="title")
+              text 详细特征
+            view.col-content(slot="content")
+              text -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n -啦啦啦啦啦啦啦\n
+    view.explore(
+      wx:if!="{{relatedProducts.length != 0}}"
+    )
+        view.title
+            text 探索更多
+        scroll-view(
+          scroll-x
+        )
+          view.list
+            view.item(
+              wx:for="{{relatedProducts}}"
+              wx:key="{{index}}"
+              hover-class="control-opacity-active"
+              class="control"
+              bindtap="$go"
+              data-type="redirect"
+              data-path="detail/detail?id={{item.productId}}"
+            )
+              w-product-card(
+                value="{{item}}"
+                showFav="{{false}}"
+              )
+  view(
+    slot="footer"
+    class="page-footer"
+  )
+      w-button(
+          class="w-button"
+          data-path="home/home"
+          bindemiteventer="navigateEmitEventer"
+      )
+          image(
+              src="https://dummyimage.com/100x100/ffbb12/fff"
+              mode="widthFix"
+          )
+          text 首页
+      w-button(
+          class="w-button"
+          data-path="cart/cart"
+          bindemiteventer="navigateEmitEventer"
+      )
+          image(
+              src="https://dummyimage.com/100x100/ffbb12/fff"
+              mode="widthFix"
+          )
+          text 购物袋
+      w-button(
+          class="w-button"
+          openType="contact"
+          contact="{{contact}}"
+      )
+          image(
+              src="https://dummyimage.com/100x100/ffbb12/fff"
+              mode="widthFix"
+          )
+          text 客服
+      w-button(
+          class="w-button"
+          bindemiteventer="cartEmitEventer"
+      )
+          text 加入购物车
+      w-button(
+          class="w-button"
+          bindemiteventer="buyEmitEventer"
+      )
+          text 立即购买
+w-loading(
+  show="{{$show}}"
+)

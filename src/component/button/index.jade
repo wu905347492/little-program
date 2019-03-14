@@ -1,0 +1,91 @@
+//- getUserInfo
+view.getPhoneNumber(
+    wx:if="{{openType == 'getUserInfo'}}"
+)
+    button(
+        class="control btn-{{type}}"
+        hover-class="control-opacity-active"
+        plain="{{plain}}"
+        open-type="{{openType}}"
+        disabled="{{disabled}}"
+        bindgetuserinfo="getUserInfoEventer"
+    )
+        slot
+
+//- getPhoneNumber
+view.getPhoneNumber(
+    wx:if="{{openType == 'getPhoneNumber'}}"
+)
+    button(
+        class="control btn-{{type}}"
+        hover-class="control-opacity-active"
+        plain="{{plain}}"
+        open-type="{{openType}}"
+        disabled="{{disabled}}"
+        bindgetphonenumber="getPhoneNumberEventer"
+    )
+        slot
+
+
+
+//- share
+view.share(
+    wx:if="{{openType == 'share'}}"
+)
+    button(
+        class="control btn-{{type}}"
+        hover-class="control-opacity-active"
+        plain="{{plain}}"
+        open-type="{{openType}}"
+        disabled="{{disabled}}"
+    )
+        slot
+
+//- contact
+view.contact(
+    wx:if="{{openType == 'contact'}}"
+)
+    button(
+        class="control btn-{{type}}"
+        hover-class="control-opacity-active"
+        plain="{{plain}}"
+        open-type="{{openType}}"
+        disabled="{{disabled}}"
+        session-from="{{contact.sessionFrom}}"
+        send-message-title="{{contact.title}}"
+        send-message-path="{{contact.path}}"
+        send-message-img="{{contact.img}}"
+        show-message-card="{{contact.showCard}}"
+        bindcontact="contactEventer"
+    )
+        slot
+//- openSetting
+view.openSetting(
+    wx:if="{{openType == 'openSetting'}}"
+)
+    button(
+        class="control btn-{{type}}"
+        hover-class="control-opacity-active"
+        plain="{{plain}}"
+        open-type="{{openType}}"
+        disabled="{{disabled}}"
+        bindopensetting="openSettingEventer"
+    )
+        slot
+//- normal
+view.normal(
+    wx:if="{{openType == 'normal'}}"
+)
+    form(
+        bindsubmit="submitEventer"
+        report-submit="true"
+    )
+        button(
+            class="control btn-{{type}}"
+            hover-class="control-opacity-active"
+            plain="{{plain}}"
+            formType="submit"
+            disabled="{{disabled}}"
+        )
+            slot
+

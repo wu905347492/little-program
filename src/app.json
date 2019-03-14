@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/user/user",
+    "pages/checkout/checkout",
+    "pages/detail/detail",
+    "pages/mall/mall",
+    "pages/order/order"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "D1M",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 100000
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [{
+        "pagePath": "pages/home/home"
+      },
+      {
+        "pagePath": "pages/category/category"
+      },
+      {
+        "pagePath": "pages/cart/cart"
+      },
+      {
+        "pagePath": "pages/user/user"
+      }
+    ]
+  },
+  "usingComponents": {
+    "w-page": "./component/page/index",
+    "w-loading": "./component/loading/index"
+  }
+}

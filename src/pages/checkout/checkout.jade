@@ -1,0 +1,370 @@
+w-page(
+  class="w-page"
+)
+  form(
+    bindsubmit="submitEventer"
+    report-submit="true"
+    slot="main"
+    class="page-main"    
+  )
+      w-field-group(id="field-group")
+        //- 订购人信息
+        view.personal-information
+          view.header
+            view.left
+              text 订购人信息
+            view.right
+              w-button(
+                openType="getPhoneNumber"
+                bindgetphonenumber="getPhoneNumberEventer"
+              )
+                text 一键授权手机号
+          view.content
+            w-field(
+              class="field"
+              prop="mobile"
+              label="订购人手机号*"
+            )
+              w-input(
+                name="mobile"
+                type="number"
+                value="{{options.mobile}}"
+                maxlength="11"
+                bindchange="mobileChangeEventer"
+              )
+            //- 授权&用户信息获取不需要验证
+            w-field(
+              class="field"
+              prop="code"
+              wx:if="{{!authMobileStatus}}"
+            )
+              view.field-inner
+                w-input(
+                  class="item"
+                  name="code"
+                  type="number"
+                  value="{{options.code}}"
+                  maxlength="6"
+                  bindchange="codeChangeEventer"
+                )
+                w-authcode(
+                  class="item"
+                  mobile="{{options.mobile}}"
+                )
+
+        //- 收件人信息
+        view.receiver-information
+          view.header
+              view.left
+                text 收件信息
+              view.right
+                w-button(
+                  wx:if="{{authAddressStatus}}"
+                  class="w-button"
+                  data-type="delivery"
+                  bindemiteventer="chooseAddressEventer"
+                )
+                    text 授权微信收货信息
+                w-button(
+                  wx:else
+                  openType="openSetting"
+                  class="w-button"
+                  data-type="delivery"
+                  bindopensetting="openAddressSettingEventer"
+                )
+                  text 授权微信收货信息
+          view.content
+            w-field(
+              class="field"
+              prop="sex"
+              label="称谓*"
+            )
+              w-picker(
+                name="sex"
+                mode="selector"
+                range="{{sexs}}"
+                key="name"
+                value="{{options.sex}}"
+                placeholder="请选择称谓"
+              )
+            w-field(
+              class="field"
+              prop="deliveryName"
+              label="收件人*"
+            )
+              w-input(
+                name="deliveryName"
+                value="{{options.deliveryName}}"
+                maxlength="30"
+              )
+            w-field(
+              class="field"
+              prop="deliveryPhone"
+              label="收件人手机号*"
+            )
+              w-input(
+                type="number"
+                name="deliveryPhone"
+                value="{{options.deliveryPhone}}"
+                maxlength="11"
+              )
+            w-field(
+              class="field"
+              prop="deliveryRegion"
+              label="所在地区*"
+            )
+              w-picker(
+                name="deliveryRegion"
+                value="{{options.deliveryRegion}}"
+              )
+            w-field(
+              class="field"
+              prop="deliveryAddress"
+              label="详细地址*"
+            )
+              w-input(
+                name="deliveryAddress"
+                value="{{options.deliveryAddress}}"
+                maxlength="140"
+              )
+            w-field(
+              class="field"
+              prop="giftContent"
+              label="礼品卡*"
+            )
+              w-textarea(
+                name="giftContent"
+                placeholder="输入可选的礼品信息，仅限250个字符"
+                value="{{options.giftContent}}"
+              )
+            w-field(
+              class="field"
+              prop="interest"
+              label="兴趣*"
+            )
+              w-checkbox-group(
+                name="interest"
+                value="{{options.interest}}"
+                bindemitevent="interestEventer"
+              )
+                w-checkbox(
+                  wx:for="{{interests}}"
+                  wx:key="index"
+                  value="{{item.value}}"
+                  label="{{item.label}}"
+                )
+
+        //- 发票信息
+        view.invoice-information
+          view.header
+            view.left
+              text 发票信息
+            view.right
+              w-checkbox(
+                name="isInvoice"
+                checked="{{options.isInvoice}}"
+                bindemitevent="checkedInvoiceEventer"
+                label="需要发票"
+                reverse="true"
+              )
+          view.content(
+            hidden="{{!options.isInvoice}}"
+          )
+            view(class="field first-field")
+              view.right
+                w-radio-group(
+                  name="invoiceType"
+                  value="{{options.invoiceType}}"
+                  bindemitevent="switchInvoiceEventer"
+                )
+                  view.radio-group-inner
+                    w-radio(
+                      class="item"
+                      value="1"
+                      label="个人"
+                    )
+                    w-radio(
+                      class="item"
+                      value="2"
+                      label="公司"
+                    )
+              view.left
+                w-button(
+                  wx:if="{{authInvoiceStatus}}"
+                  class="w-button"
+                  bindemiteventer="chooseInvoiceEventer"
+                )
+                  text 授权微信发票信息
+                w-button(
+                  wx:else
+                  openType="openSetting"
+                  class="w-button"
+                  bindopensetting="openInvoiceSettingEventer"
+                )
+                  text 授权微信发票信息
+            view(hidden="{{options.invoiceType != 1}}")
+              w-field(
+                class="field"
+                prop="invoicePerTitle"
+                label="您的姓名*"
+              )
+                w-input(
+                  name="invoicePerTitle"
+                  value="{{options.invoicePerTitle}}"
+                  maxlength="140"
+                )
+            view(hidden="{{options.invoiceType != 2}}")
+              w-field(
+                class="field"
+                prop="invoiceComTitle"
+                label="公司抬头*"
+              )
+                w-input(
+                  name="invoiceComTitle"
+                  value="{{options.invoiceComTitle}}"
+                  maxlength="140"
+                )
+              w-field(
+                class="field"
+                prop="invoiceTaxNo"
+                label="税号*"
+              )
+                w-input(
+                  name="invoiceTaxNo"
+                  value="{{options.invoiceTaxNo}}"
+                  maxlength="140"
+                )
+            view.field
+              w-checkbox(
+                name="isEqual"
+                checked="{{options.isEqual}}"
+                bindemitevent="checkedEqualEventer"
+                label="收票地址与收件地址一致"
+                reverse="true"
+              )
+        //- 收票信息
+        view.invoice-information(
+          wx:if!="{{options.isInvoice && !options.isEqual}}"
+        )
+          view.header
+            view.left
+              text 收票信息
+            view.right
+              w-button(
+                wx:if="{{authAddressStatus}}"
+                class="w-button"
+                data-type="invoice"
+                bindemiteventer="chooseAddressEventer"
+              )
+                text 授权微信收货信息
+              w-button(
+                wx:else
+                openType="openSetting"
+                class="w-button"
+                data-type="invoice"
+                bindopensetting="openAddressSettingEventer"
+              )
+                text 授权微信收货信息
+          view.content
+            w-field(
+              class="field"
+              prop="invoiceName"
+              label="收票人*"
+            )
+              w-input(
+                name="invoiceName"
+                value="{{options.invoiceName}}"
+                maxlength="30"
+              )
+            w-field(
+              class="field"
+              prop="invoicePhone"
+              label="收票人手机号*"
+            )
+              w-input(
+                type="number"
+                name="invoicePhone"
+                value="{{options.invoicePhone}}"
+                maxlength="11"
+              )
+            w-field(
+              class="field"
+              prop="invoiceRegion"
+              label="所在地区*"
+            )
+              w-picker(
+                name="invoiceRegion"
+                value="{{options.invoiceRegion}}"
+              )
+            w-field(
+              class="field"
+              prop="invoiceAddress"
+              label="详细地址*"
+            )
+              w-input(
+                name="invoiceAddress"
+                value="{{options.invoiceAddress}}"
+                maxlength="140"
+              )
+        //- 商品信息
+        view.product-information
+          view.header
+            view.left
+              text 商品详情
+          view.content
+            view.item(
+              wx:for="{{checkoutParams}}"
+              wx:key="{{index}}"
+            )
+              view.box
+                image(
+                  mode="widthFix"
+                  src="https://dummyimage.com/750x750/ffbb12/fff"
+                )
+              view.box
+                view.desc
+                  text {{item.productName}}
+                  text {{item.subTitle}}
+                  text(decode) {{item.color}} &nbsp; {{item.size}}
+                view.quantity
+                  money(
+                    value="{{item.marketPrice}}"
+                  )
+                  text x{{item.quantity}}
+        //- 结算相关
+        view.footer-information
+          view.field
+            text 订单总金额:
+            money(
+              value="{{totalPrice}}"
+            )
+          w-field(
+            class="field"
+            prop="status"
+          )
+            view.field-inner
+                w-checkbox(
+                  name="status"
+                  bindemitevent="checkedStatusEventer"
+                  checked="{{options.status}}"
+                )
+                view.desc
+                  text 我已经阅读并接受相关的
+                  text 隐私条款
+  view(
+    slot="footer"
+    class="page-footer"
+  )
+    view.field
+      button(
+        class="submit"
+        formType="submit"
+      ) 立即支付
+
+
+
+
+
+
+
+

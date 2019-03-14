@@ -1,0 +1,15 @@
+view(
+    class="product-fav"
+)
+    image(
+        wx:if="{{!isFav}}"
+        catchtap="addFavEventer"
+        src="http://placeholder.qiniudn.com/100x100/e0e0e0/999"
+        mode="widthFix"
+    )
+    image(
+        wx:else
+        catchtap="delFavEventer"
+        src="http://placeholder.qiniudn.com/100x100/000/999"
+        mode="widthFix"
+    )

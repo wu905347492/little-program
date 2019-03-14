@@ -1,0 +1,30 @@
+view(
+    class="tabs"
+    wx:if="{{show}}"
+)
+    view.tab-item(
+        wx:for="{{list}}"
+        wx:key="index"
+        hover-class="control control-scale-active"
+        data-path="{{item.pagePath}}"
+        data-type="switchTab"
+        bindtap="$routeLink"
+    )
+        view.tab-box(
+            class="{{item.active ? 'active' : ''}}"
+        )
+            view.icon(
+                wx:if="{{showIcon}}"
+            )
+                view(
+                    hidden="{{item.active}}"
+                    class="icon icon-{{item.icon}}"
+                )
+                view(
+                    hidden="{{!item.active}}"
+                    class="icon icon-{{item.selectedIcon}}"
+                )
+            view.text(
+                wx:if="{{showText}}"
+            )
+                view {{item.text}}

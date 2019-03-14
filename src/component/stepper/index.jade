@@ -1,0 +1,20 @@
+view(
+    class="stepper stepper-{{type}}"
+)
+    view(
+        class!="stepper-minus {{ stepper <= min ? 'disabled' : '' }}",
+        data-disabled!="{{stepper<= min}}",
+        bindtap="minusEventer",
+    ) -
+    input(
+        class!="stepper-text {{ min >= max ? 'disabled' : '' }}",
+        type="number",
+        value="{{stepper}}",
+        disabled!="{{min>=max}}",
+        bindblur="blurEventer"
+    )
+    view(
+        class!="stepper-plus {{ stepper >= max ? 'disabled' : '' }}",
+        data-disabled!="{{ stepper >= max }}",
+        bindtap="plusEventer"
+    ) +

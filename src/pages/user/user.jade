@@ -1,0 +1,70 @@
+w-page(
+  isTabbar="true"
+  class="w-page"
+  show="{{$show}}"
+)
+  view.page-main(
+    slot="main"
+  )
+    view.header
+      view.userNickName
+        open-data(
+        type="userNickName"
+        )
+      view.userAvatarUrl
+        open-data(
+        type="userAvatarUrl"
+        )
+    view.content
+      view.banner
+        image(
+        class="main-image"
+        src="http://placeholder.qiniudn.com/750x300/f0f0f0/999"
+        mode="widthFix"
+        )
+      view.list
+        view.item(
+        data-path="order/order"
+        bindtap="$routeLink"
+        )
+          view.left
+            image(
+            src="http://placeholder.qiniudn.com/100x100/f0f0f0/999"
+            mode="widthFix"
+            )
+            text 我的订单
+          view.right
+            image(
+            src="http://placeholder.qiniudn.com/100x100/f0f0f0/999"
+            mode="widthFix"
+            )
+        view.item(
+        data-path="favorite/favorite"
+        bindtap="$routeLink"
+        )
+          view.left
+            image(
+            src="http://placeholder.qiniudn.com/100x100/f0f0f0/999"
+            mode="widthFix"
+            )
+            text 我的心愿单
+          view.right
+            image(
+            src="http://placeholder.qiniudn.com/100x100/f0f0f0/999"
+            mode="widthFix"
+            )
+        view.item
+          view.left
+            image(
+            src="http://placeholder.qiniudn.com/100x100/f0f0f0/999"
+            mode="widthFix"
+            )
+            text 门店列表
+          view.right
+            image(
+            src="http://placeholder.qiniudn.com/100x100/f0f0f0/999"
+            mode="widthFix"
+          )
+w-loading(
+  show="{{$show}}"
+)

@@ -1,0 +1,14 @@
+view.collapse
+	view.collapse-title(
+		id="collapse-title-{{id}}"
+		bindtap="toggleEventer"
+	)
+		view.text
+			slot(name="title")
+	view.collapse-outer(
+		class="{{status ? 'collapse-outer-show' : ''}}"
+	)
+		view.collapse-inner(
+			class="{{status ? 'collapse-inner-show' : ''}}"
+		)
+			slot(name="content")

@@ -1,0 +1,181 @@
+.loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    .loading-icon {
+        text-align: center;
+        .circle {
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+            border-radius: 100%;
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            border-color: rgba(0, 0, 0, .1);
+            border-top-color: rgba(255, 255, 255, .7);
+            animation: loading 1s linear infinite;
+        }
+        .spinner {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            position: relative;
+            animation: loading 1s linear infinite;
+            animation-timing-function: steps(12);
+            view {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                text-align: center;
+                top: 0;
+                left: 0;
+
+                &::after {
+                    content: '';
+                    background: #fff;
+                    height: 25%;
+                    display: block;
+                    width: 2px;
+                    border-radius: 2px;
+                    margin: 0 auto;
+                }
+
+                &:nth-child(1) {
+                    transform: rotate(30deg);
+                    opacity: .78571
+                }
+
+                &:nth-child(2) {
+                    transform: rotate(60deg);
+                    opacity: .71429
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(90deg);
+                    opacity: .64286
+                }
+
+                &:nth-child(4) {
+                    transform: rotate(120deg);
+                    opacity: .57143
+                }
+
+                &:nth-child(5) {
+                    transform: rotate(150deg);
+                    opacity: .5
+                }
+
+                &:nth-child(6) {
+                    transform: rotate(180deg);
+                    opacity: .42857
+                }
+
+                &:nth-child(7) {
+                    transform: rotate(210deg);
+                    opacity: .35714
+                }
+
+                &:nth-child(8) {
+                    transform: rotate(240deg);
+                    opacity: .28571
+                }
+
+                &:nth-child(9) {
+                    transform: rotate(270deg);
+                    opacity: .21429
+                }
+
+                &:nth-child(10) {
+                    transform: rotate(300deg);
+                    opacity: .14286
+                }
+
+                &:nth-child(11) {
+                    transform: rotate(330deg);
+                    opacity: .07143
+                }
+
+                &:nth-child(12) {
+                    transform: rotate(360deg);
+                    opacity: 0
+                }
+            }
+        }
+        &.black {
+            .circle {
+                border-color: #999;
+                border-top-color: #333;
+            }
+            .spinner view::after {
+                content: '';
+                background: #c9c9c9;
+                height: 25%;
+                display: block;
+                width: 2px;
+                border-radius: 2px;
+                margin: 0 auto;
+            }
+        }
+    }
+    .loading-text {
+        font-size: 24rpx;
+    }
+
+    &.screen{
+        background: rgba(255, 255, 255, .97);
+    }
+    &.block{
+        background: transparent;
+        .loading-inner{
+            margin-top: -100rpx;
+            padding: 50rpx;
+            background: #fff;
+            border-radius: 10rpx;
+            opacity: .9;
+            border: 1rpx solid #efefef;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate__fade_in {
+    animation: fadeIn ease .2s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.animate__fade_out {
+    animation: fadeOut ease .5s forwards;
+}

@@ -1,0 +1,19 @@
+.collapse {
+    .collapse-outer {
+        height: 0;
+        overflow: hidden;
+        &.collapse-outer-show {
+            height: auto;
+        }
+        .collapse-inner {
+            line-height: 40rpx;
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: .3s;
+            &.collapse-inner-show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

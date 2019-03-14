@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+    	"w-popup": "../../popup/index",
+    	"w-button": "../../button/index"
+    },
+    "component": true
+}

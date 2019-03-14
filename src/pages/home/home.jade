@@ -1,0 +1,26 @@
+w-page(
+  isTabbar="true"
+  class="w-page"
+  show="{{$show}}"
+)
+  view(
+    slot="main"
+    class="page-main"
+  )
+    swiper(
+      class="swiper"
+      duration="500"
+      circular="{{true}}"
+      indicator-dots="{{true}}"
+      indicator-color="rgba(0, 0, 0, .3)"
+      indicator-active-color="rgba(0, 0, 0, .6)"
+    )
+      swiper-item(
+        class="swiper-item"
+        wx:for="{{[1,2,3,4,5]}}"
+        wx:key="{{index}}"
+      )
+        view {{item}}
+w-loading(
+  show="{{$show}}"
+)

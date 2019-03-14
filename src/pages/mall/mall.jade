@@ -1,0 +1,31 @@
+view.container
+    w-product-filter(
+        fields="{{fields}}"
+        series="{{series}}"
+        curser="{{curser}}"
+        distance="160"
+        bindchangeFields="fieldsChangeEventer"
+        bindchangeSeries="seriesChangeEventer"
+    )
+    view.content(
+        class="clearfix"
+    )
+        view.item(
+            wx:for="{{list}}"
+            wx:key="{{index}}"
+            hover-class="control-opacity-active"
+            class="control"
+            bindtap="$go"
+            data-path="detail/detail?id={{item.productId}}"
+        )
+            w-product-card(
+                value="{{item}}"
+            )
+
+    w-tabbar(
+        tabs="{{$tabs}}"
+    )
+    w-loading(
+        show="{{$loading.show}}"
+        text="{{$loading.text}}"
+    )

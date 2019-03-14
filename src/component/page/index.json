@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-tabbar": "../tab-bar/index",
+    "w-loading": "../loading/index"
+  },
+  "component": true
+}

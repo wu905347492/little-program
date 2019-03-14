@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "MALL",
+    "usingComponents":
+    {
+        "w-popup": "../../component/popup/index",
+        "transition": "../../component/transition/index",
+        "w-product-card": "../../component/module/product-card/index",
+        "w-product-filter": "../../component/module/product-filter/index"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "D1M",
+    "usingComponents":
+    {
+        "money": "../../component/currency/index",
+        "w-checkbox": "../../component/checkbox/index",
+        "w-button": "../../component/button/index",
+        "w-stepper": "../../component/stepper/index"
+    },
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+}

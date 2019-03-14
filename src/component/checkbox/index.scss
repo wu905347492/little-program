@@ -1,0 +1,98 @@
+$color: #000;
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+    .checkbox {
+        position: relative;
+        height: 52rpx;
+        width: 52rpx;
+        margin-left: -10rpx;
+        .icon {
+            position: absolute;
+            left: 10rpx;
+            top: 10rpx;
+            height: 30rpx;
+            width: 30rpx;
+            border-radius: 2rpx;
+        }
+        .icon-checked {
+            width: 24rpx;
+            height: 12rpx;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -10rpx 0 0 -12rpx;
+            transform: rotate(-45deg);
+            overflow: hidden;
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                background: $color;
+            }
+            &:before {
+                width: 2rpx;
+                height: 12rpx;
+                left: 0;
+                animation: animateLeft .1s linear 0s 1 both
+            }
+            &:after {
+                width: 24rpx;
+                height: 2rpx;
+                bottom: 0;
+                animation: animateRight .1s linear .1s 1 both
+            }
+            @keyframes animateLeft {
+                0% {
+                    top: -100%
+                }
+                100% {
+                    top: 0%
+                }
+            }
+            @keyframes animateRight {
+                0% {
+                    left: -100%
+                }
+                100% {
+                    left: 0%
+                }
+            }
+        }
+        .icon-unchecked {
+            border: 1rpx solid $color;
+        }
+        .icon-dischecked {
+            border: 1rpx solid $color;
+            opacity: .3;
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 15rpx;
+                width: 30rpx;
+                height: 2rpx;
+                background: $color;
+                transform: rotate(-45deg);
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 15rpx;
+                width: 30rpx;
+                height: 2rpx;
+                background: $color;
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .label-text {
+        padding: 0 8rpx;
+    }
+}

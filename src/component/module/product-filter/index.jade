@@ -1,0 +1,94 @@
+view(
+    class="product-filter"
+    id="product-filter"
+)
+    view.filter--series(
+        wx:if!="{{series.length > 0}}"
+    )
+        view.item(
+            bindtap="seriesEventer"
+        )
+            text {{curser.text}}
+    view.filter--fields(
+        wx:if!="{{fields.length > 0}}"
+    )
+        view.item(
+            class="{{mode == 1 ? 'active' : ''}}"
+            data-mode="1"
+            bindtap="fieldsEventer"
+        )
+            text 默认
+        view.item(
+            class="{{mode == 2 ? 'active' : ''}}"
+            data-mode="2"
+            bindtap="fieldsEventer"
+        )
+            text 新品
+        view.item(
+            class="{{mode == 3 ? 'active' : ''}}"
+            data-mode="3"
+            bindtap="fieldsEventer"
+        )
+            text(
+                class="direction {{direction ? 'desc' : 'asce'}}"
+            ) 价格
+        view.item(
+            class!="{{terms.length > 0 ? 'active' : ''}}"
+            data-mode="4"
+            bindtap="fieldsEventer"
+        )
+            text 筛选
+w-popup(
+    class="popup-filter--series"
+    distance="{{distance}}"
+    show="{{status == 1}}"
+    type="top"
+    animation="slideUp"
+)
+    view.content
+        view.section(
+            wx:for="{{series}}"
+            bindtap="selectEventer"
+            wx:key="index"
+            data-curser="{{item}}"
+        )
+            text {{item.text}}
+w-popup(
+    class="popup-filter--fields"
+    distance="{{distance}}"
+    show="{{status == 2}}"
+    type="top"
+    animation="slideUp"
+)
+    view.content
+        view.section(
+            wx:for="{{fields}}"
+            wx:key="index"
+        )
+            view.title
+                text {{item.title}}
+            view.list
+                view.item(
+                    class="{{subItem.active ? 'active' : ''}}"
+                    wx:for="{{item.list}}"
+                    wx:key="index"
+                    wx:for-item="subItem"
+                    data-value="{{subItem}}"
+                    bindtap="checkedEventer"
+                )
+                    text {{subItem.text}}
+    view.footer
+        w-button(
+            class="w-button"
+            bindemiteventer="resetEventer"
+        )
+            text 重置
+        w-button(
+            class="w-button"
+            bindemiteventer="confirmEventer"
+        )
+            text 确定
+
+
+
+

@@ -1,0 +1,68 @@
+.tabs {
+  display: flex;
+  height: 100rpx;
+  text-align: center;
+  z-index: 1000;
+  font-size: 22rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #fff;
+  .tab-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+
+    .tab-box {
+      >.icon {}
+      >.text {
+        line-height: 1.5;
+        color: rgb(84, 62, 62);
+      }
+      &.active {
+        >.icon {}
+        >.text {
+          color: rgb(255, 187, 18);
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  width: 50rpx;
+  /*default*/
+  height: 50rpx;
+  /*default*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+.icon-home {
+  background-image: url('../../assets/images/icon/shouye.png');
+}
+
+.icon-category {
+  background-image: url('../../assets/images/icon/liwu.png');
+}
+
+.icon-cart {
+  background-image: url('../../assets/images/icon/gouwudai.png');
+}
+
+.icon-user {
+  background-image: url('../../assets/images/icon/yonghu.png');
+}
+
+
+.control {
+  transition: all .5s ease-in-out;
+}
+
+.control-scale-active {
+  transform: scale(1.05, 1.05);
+}
