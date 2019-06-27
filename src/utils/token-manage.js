@@ -27,7 +27,14 @@ const token = {
   status: false,
   queueCallbacks: [],
   config(options) {
-    request = options.request;
+    if (options.request) {
+      request = options.request;
+    }
+    Object.assign(store, {
+      getter: options.getter,
+      setter: options.setter,
+      cleaner: options.cleaner
+    });
   },
   async get() {
     const _token = await store.getter();
@@ -87,9 +94,9 @@ const token = {
       openId,
       phone
     } = result.data
-    await this.set(token);
     storageManage.setOpenId(openId);
     storageManage.setPhone(phone);
+    await this.set(token);
     return result;
   },
   complete(type, result) {

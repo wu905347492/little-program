@@ -1,0 +1,2 @@
+@import './assets/style/icon.wxss';
+@import './assets/style/base.wxss';

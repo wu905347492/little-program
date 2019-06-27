@@ -1,4 +1,38 @@
 .collapse {
+    .collapse-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 20rpx 30rpx;
+        .icon {
+            position: relative;
+            width: 50rpx;
+            height: 50rpx;
+        }
+        .icon-arrow {
+            /* 向右 背景箭头*/
+            transform-origin: center;
+            transition: all .5s;
+            position: relative;
+            /**/
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 24rpx;
+                height: 24rpx;
+                margin-left: -12rpx;
+                margin-top: -12rpx;
+                border-left: 2rpx solid #000;
+                border-bottom: 2rpx solid #000;
+                transform: rotate(-135deg);
+                box-sizing: border-box;
+            }
+        }
+        .active {
+            transform: rotate(90deg);
+        }
+    }
     .collapse-outer {
         height: 0;
         overflow: hidden;
@@ -6,6 +40,10 @@
             height: auto;
         }
         .collapse-inner {
+            padding: 10rpx 0 30rpx;
+            font-size: 24rpx;
+            font-weight: 300;
+            color: #666;
             line-height: 40rpx;
             opacity: 0;
             transform: translateY(-50%);

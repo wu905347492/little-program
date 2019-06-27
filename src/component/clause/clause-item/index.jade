@@ -1,0 +1,15 @@
+
+view.clause-item-container(
+	style="font-size: {{fontSize}}"
+	bindtap="action"
+)
+	view.item-title
+		text.thin {{title}}
+	image.item-img(
+		src="{{src}}"
+		mode="widthFix"
+	)
+view.item-content(
+	style="display: {{display.content}}; font-size: {{fontSize}}"
+)
+	slot

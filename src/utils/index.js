@@ -6,11 +6,7 @@ import request from './request';
 import utils from './utils';
 import logger from './logger';
 import preload from './preload';
-import store from './storage-manage';
-
-tokenManage.config({
-  request
-});
+import storageManage from './storage-manage';
 
 export {
   tokenManage,
@@ -18,5 +14,5 @@ export {
   utils,
   logger,
   preload,
-  store
+  storageManage
 };

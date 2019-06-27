@@ -8,74 +8,6 @@ const {
   normalizeUrl
 } = utils
 
-/**
- * 扩展数值类型
- */
-Object.defineProperty(Number.prototype, '$currency', {
-  writable: false,
-  enumerable: false,
-  configurable: true,
-  value: function() {
-    return utils.currency(this)
-  }
-})
-
-
-/**
- * 扩展字符类型
- */
-Object.defineProperty(String.prototype, '$json', {
-  writable: false,
-  enumerable: false,
-  configurable: true,
-  value: function() {
-    let value = this
-    try { return JSON.parse(value) } catch (err) {
-      console.error('JSON parse error', err)
-      return value
-    }
-  }
-})
-
-Object.defineProperty(String.prototype, '$length', {
-  writable: false,
-  enumerable: false,
-  configurable: true,
-  value: function() {
-    return this.replace(/[^x00-xff]/g, "00").length
-  }
-})
-
-
-
-
-/**
- * 扩展对象类型
- */
-Object.defineProperty(String.prototype, '$currency', {
-  writable: false,
-  enumerable: false,
-  configurable: true,
-  value: function() {
-    return utils.currency(this)
-  }
-})
-Object.defineProperty(Object.prototype, '$array', {
-  writable: false,
-  enumerable: false,
-  configurable: true,
-  value: function() {
-    let value = this
-    let result = Object.keys(value).map(function(item) {
-      return {
-        key: item,
-        ...value[item]
-      }
-    })
-    return result
-  }
-})
-
 
 /**
  * wx对象下的所有非同步方法promise化
@@ -145,7 +77,7 @@ Page = function (options) {
 
   // add preload lifecycle
   opts.$route = normalizeUrl(opts.$route)
-  preload.init(opts.$route, opts.onPreload)
+  preload.init(opts.$route, opts.onPreLoad)
   return _Page(opts)
 }
 

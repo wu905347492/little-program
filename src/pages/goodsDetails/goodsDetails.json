@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "Details",
+  "usingComponents": {
+    "w-adaptive" : "../../component/adaptive/index",
+    "w-button" : "../../component/button/index",
+    "w-currency" : "../../component/currency/index",
+    "w-collapse" : "../../component/collapse/index",
+    "w-clause" : "../../component/clause/clause/index",
+    "w-clause-item": "../../component/clause/clause-item/index"
+  }
+}

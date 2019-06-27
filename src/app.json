@@ -1,19 +1,19 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/category/category",
     "pages/cart/cart",
-    "pages/user/user",
+    "pages/order/order",
+    "pages/category/category",
+    "pages/goodsDetails/goodsDetails",
     "pages/checkout/checkout",
     "pages/detail/detail",
-    "pages/mall/mall",
-    "pages/order/order"
+    "pages/mall/mall"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000000",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "D1M",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 100000
@@ -27,18 +27,16 @@
         "pagePath": "pages/home/home"
       },
       {
-        "pagePath": "pages/category/category"
-      },
-      {
         "pagePath": "pages/cart/cart"
       },
       {
-        "pagePath": "pages/user/user"
+        "pagePath": "pages/order/order"
       }
     ]
   },
   "usingComponents": {
     "w-page": "./component/page/index",
-    "w-loading": "./component/loading/index"
+    "w-loading": "./component/loading/index",
+    "money": "./component/module/money/index"
   }
 }

@@ -5,10 +5,9 @@ view(
     view.tab-item(
         wx:for="{{list}}"
         wx:key="index"
-        hover-class="control control-scale-active"
         data-path="{{item.pagePath}}"
-        data-type="switchTab"
-        bindtap="$routeLink"
+        data-url="{{item.pagePath}}"
+        bindtap="switchTab"
     )
         view.tab-box(
             class="{{item.active ? 'active' : ''}}"
@@ -28,3 +27,11 @@ view(
                 wx:if="{{showText}}"
             )
                 view {{item.text}}
+w-sheet(
+  visible="{{ visible }}"
+  actions="{{ actions }}"
+  show-cancel
+  bind:cancel="handleCancel"
+  bind:click="handleClickItem" 
+  bind:contact="sendContact"
+)

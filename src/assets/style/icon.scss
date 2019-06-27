@@ -1,0 +1,133 @@
+.icon {
+    position: relative;
+    display: inline-block;
+    width: 50rpx;
+    /*default*/
+    height: 50rpx;
+    /*default*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+.icon-arrow {
+    background-image: url('../../assets/images/icon/arrow.png');
+}
+.icon-arrow-left {
+    transform: rotate(90deg);
+    background-image: url('../../assets/images/icon/arrow.png');
+}
+.icon-arrow-right {
+    transform: rotate(-90deg);
+    background-image: url('../../assets/images/icon/arrow.png');
+}
+.icon-phone {
+    background-image: url('../../assets/images/icon/phone.png');
+}
+// --详情页
+// icon-left 
+.icon-left:after {
+    content: "";
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: -5rpx;
+    width: 30rpx;
+    height: 30rpx;
+    margin-top: 30rpx;
+    border-top: 2rpx solid #666;
+    border-left: 2rpx solid #666;
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+.icon-right:after {
+    content: "";
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    right: -5rpx;
+    width: 30rpx;
+    height: 30rpx;
+    margin-top: 30rpx;
+    border-bottom: 2rpx solid #666;
+    border-right: 2rpx solid #666;
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+
+// --订单页面
+// icon-down
+.icon-down:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24rpx;
+    height: 24rpx;
+    margin-left: -12rpx;
+    margin-top: -12rpx;
+    border-left: 2rpx solid #fff;
+    border-bottom: 2rpx solid #fff;
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+.icon-up:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24rpx;
+    height: 24rpx;
+    margin-left: -12rpx;
+    margin-top: -8rpx;
+    border-top: 2rpx solid #fff;
+    border-right: 2rpx solid #fff;
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+// --checkout页面
+// icon-down-arrow 
+.icon-down-plus:after {
+    content: "";
+    position: absolute;
+    right: 15rpx;
+    margin-top: -12.5rpx;
+    border-top: solid 15rpx transparent;
+    border-left: solid 15rpx #543f34;
+    border-bottom: solid 15rpx transparent;
+    transform: rotate(90deg);
+    box-sizing: border-box;
+}
+
+// icon-down-arrow
+.icon-up-plus:after {
+    content: "";
+    position: absolute;
+    right: 15rpx;
+    top: 50%;
+    margin-top: -12.5rpx;
+    border-top: solid 15rpx transparent;
+    border-left: solid 15rpx #543f34;
+    border-bottom: solid 15rpx transparent;
+    transform: rotate(-90deg);
+    box-sizing: border-box;
+}
+.icon-down-mini:after  {
+    content: "";
+    position: absolute;
+    right: 15rpx;
+    margin-top: -10rpx;
+    border-top: solid 10rpx transparent;
+    border-left: solid 10rpx #543f34;
+    border-bottom: solid 10rpx transparent;
+    transform: rotate(90deg);
+    box-sizing: border-box;
+}
+// 购物车
+.icon-close {
+    background-image: url('../images/icon/icon-cancel.png');
+}
+

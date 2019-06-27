@@ -1,13 +1,81 @@
-.page-main{
-  .swiper{
-    margin-top: 30rpx;
-    .swiper-item{
-      height: 300rpx;
-      background: #ccc;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+.page-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .icon {
+    width: 100rpx;
+    height: 100rpx;
+    background-size: 50rpx;
+  }
+
+  .down-arrow {
+    position: absolute;
+    bottom: 110rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+    z-index: 100;
+
+    &.ipx {
+      bottom: 140rpx;
+    }
+
+    .icon {
+      // background-size: 40rpx;
+      margin: -10rpx 0 -30rpx;
     }
   }
+
+
+  .swiper {
+    width: 100%;
+    flex: 1;
+
+    .content-first {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .banner {
+        width: 100%;
+        height: calc(100% - 100rpx);
+      }
+
+      .banner-ipx {
+        width: 100%;
+        height: calc(100% - 120rpx);
+      }
+
+      .arrow-down {
+        box-sizing: border-box;
+        color: #000;
+        font-size: 24rpx;
+        line-height: 56rpx;
+        letter-spacing: 2rpx;
+        text-align: center;
+        position: absolute;
+        bottom: 110rpx;
+        left: 0;
+        width: 100%;
+
+        &.ipx {
+          bottom: 120rpx;
+        }
+      }
+    }
+
+    .content-second {
+      
+    }
+  }
+
 }

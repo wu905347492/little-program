@@ -1,0 +1,38 @@
+.fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 99;
+    background: #fff;
+    padding-bottom: 0;
+}
+
+
+.isTabBar .fixed {
+    padding-bottom: 100rpx;
+}
+
+.isIpx .fixed {
+    padding-bottom: 30rpx;
+}
+
+.isIpx.isTabBar .fixed {
+    padding-bottom: 130rpx;
+}
+
+.static {
+    height: 100rpx;
+}
+
+.isIpx .static {
+    width: 750rpx;
+    height: 130rpx;
+}
+
+.isIpx.isTabBar .static {
+    width: 750rpx;
+    height: 100rpx;
+}
+

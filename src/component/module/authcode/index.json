@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "w-button": "../../../component/button/index"
+    "w-button": "../../button/index"
   }
 }

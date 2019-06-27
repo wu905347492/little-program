@@ -22,7 +22,6 @@ export default Component({
   attached() {},
   methods: {
     async submitEventer(event) {
-
       // 函数回调
       this.triggerEvent('emiteventer', {})
 

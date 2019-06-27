@@ -1,0 +1,132 @@
+view.container
+	view.scroll-container
+		scroll-view.scroll(
+		scroll-y
+		scroll-top="{{scroll}}"
+		)
+			view.main
+				swiper.swiper-view(
+					circular="{{true}}"
+					indicator-dots
+					indicator-color="#ffffff"
+					indicator-active-color="#000000"
+					data-type="pre"
+					current="{{swiperCurrent.preview}}"
+					bindchange="swiperAction"
+				)
+					swiper-item.swiper-item(
+						wx:for="{{details.images}}"
+						wx:key="{{index}}"
+						data-index="{{index}}"
+					)
+						image.swiper-item-img(
+							mode="widthFix"
+							src="{{item.sourceUrl}}"
+							data-id="{{details.productId}}"
+							bindtap="previewAction"
+						)
+				view.good-info
+					view.good-name
+						view.thin {{details.productName}}
+						view.thin {{details.description}}
+					view.goods-price
+						w-currency(
+							value="{{details.salePrice}}"
+							type="¥"
+							color="#333"
+							fontSize="36rpx"
+						)
+				view.size-view
+					view.size-choose
+						view 尺码选择：
+						view 尺码表
+					view.size-content
+						view.size-flex(
+							wx:for="{{details.sizes}}"
+							wx:key="{{index}}"
+						)
+							view.size-item(
+								bindtap="selectSizeAction"
+								data-index="{{index}}"
+								wx:if!="{{item.stock > 0}}"
+								class="{{sizeSelect.index == index ? 'selected-size' : ''}}"
+							)
+								text(
+									class="size-text"
+								) {{item.size}}
+							view.size-item.size-no-stock-item(
+								wx:if!="{{item.stock <= 0}}"
+							)
+								text.thin {{item.size}}
+				view.details-desc
+					w-clause
+						w-clause-item(
+							wx:for="{{details.extAttrArr}}"
+							wx:key="{{index}}"
+							title="{{item.title}}"
+							fontSize="24"
+						)
+							text.thin(
+								style="color: rgb(102, 102, 102)" 
+							) {{item.value}}
+				view.explore-view
+					view.explore-title
+						text.thin 探索更多
+					swiper.explore-swiper(
+						current="{{swiperCurrent.explore}}"
+						data-type="explore"
+						bindchange="swiperAction"
+					)
+						swiper-item.explore-swiper-item(
+							wx:for="{{exploreArr}}"
+							wx:key="{{index}}"
+						)
+							view.swiper-item-content
+								image.explore-swiper-item-img(
+									wx:for="{{item}}"
+									wx:key="{{index}}"
+									mode="widthFix"
+									src="{{item.url}}"
+									data-index="{{item.index}}"
+									bindtap="exploreAction"
+								)
+					view.pagination.pagination-explore
+						view.dots(
+							wx:for="{{exploreArr}}"
+							wx:key="index"
+							class!="{{index == swiperCurrent.explore? 'active' : ''}}"
+						)
+						
+w-adaptive(
+	isTabBar="{{false}}"
+)
+	view.footer
+		view.box
+			w-button(
+				openType="contact"
+			)
+				view.barImg
+					image(
+						mode='widthFix'
+						src="../../assets/images/icon/gouwudai.png", alt=""
+					)
+				text 客服
+		view.box(
+			data-path="cart/cart"
+			bindtap="goCart"
+		)
+			view.barImg
+				image(
+					mode='widthFix'
+					src="../../assets/images/icon/gouwudai.png", alt=""
+			)
+			text 购物袋
+		view.box.addCart()
+			w-button(
+				class="button"
+				openType="normal"
+				) 加入购物袋
+		view.box.buyButton()
+			w-button(
+				data-type="2"
+			) 立即购买

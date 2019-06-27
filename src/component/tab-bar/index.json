@@ -1,3 +1,6 @@
 {
-    "component": true
+  "component": true,
+  "usingComponents": {
+    "w-sheet": "../action-sheet/index"
+  }
 }

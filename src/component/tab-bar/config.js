@@ -5,21 +5,21 @@ export default [{
   selectedIcon: 'home'
 },
 {
-  pagePath: 'pages/category/category',
-  text: '类别',
-  icon: 'category',
-  selectedIcon: 'category'
-},
-{
   pagePath: 'pages/cart/cart',
-  text: '购物车',
+  text: '购物袋',
   icon: 'cart',
   selectedIcon: 'cart'
 },
 {
-  pagePath: 'pages/user/user',
-  text: '用户',
-  icon: 'user',
-  selectedIcon: 'user'
+  pagePath: 'pages/order/order',
+  text: '订单',
+  icon: 'order',
+  selectedIcon: 'order'
+},
+{
+  pagePath: '',
+  text: '帮助',
+  icon: 'kefu',
+  selectedIcon: 'kefu'
 }
 ]

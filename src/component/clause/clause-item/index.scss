@@ -1,0 +1,22 @@
+.clause-item-container {
+	height: 88rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 24rpx;
+	color: #333;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #e5e5e5;
+	.thin {
+		font-weight: 300;
+	}
+	.item-img {
+		width: 26rpx;
+		height: 26rpx;
+	}
+}
+.item-content {
+	padding: 20rpx 0;
+	transition: all 0.5s;
+	border-bottom: 1rpx solid #e5e5e5;
+}

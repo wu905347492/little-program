@@ -1,19 +1,20 @@
 .transition {
-    animation-name: animation;
-    animation-timing-function: ease-in;
-    animation-duration: .4s;
-    animation-fill-mode: forwards;
-    animation-delay: .2s;
-    opacity: 0;
+  animation-name: animation;
+  animation-timing-function: ease-in;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+  animation-delay: .2s;
+  opacity: 0;
 }
 
 @keyframes animation {
-    0% {
-        opacity: 0;
-        transform: translateY(-10rpx);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-10rpx);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

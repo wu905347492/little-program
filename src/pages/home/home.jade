@@ -1,5 +1,5 @@
 w-page(
-  isTabbar="true"
+  isTabbar="{{true}}"
   class="w-page"
   show="{{$show}}"
 )
@@ -9,18 +9,43 @@ w-page(
   )
     swiper(
       class="swiper"
-      duration="500"
-      circular="{{true}}"
-      indicator-dots="{{true}}"
-      indicator-color="rgba(0, 0, 0, .3)"
-      indicator-active-color="rgba(0, 0, 0, .6)"
+      current="{{swiper_current}}",
+      vertical="{{true}}"
+      bindchange="swiperChangeEventer"
+      bindanimationfinish="swiperAnimationEventer"
     )
+      //- 第一屏两个solution
       swiper-item(
-        class="swiper-item"
-        wx:for="{{[1,2,3,4,5]}}"
-        wx:key="{{index}}"
+          class="swiper-item"
       )
-        view {{item}}
+        view.content-first
+            image(
+                class="{{ $isIpx ? 'banner-ipx' : 'banner' }}"
+                src="../../assets/images/banner.jpg"
+                mode="widthFix"
+            )
+            view.arrow-down.show(
+                class="{{ $isIpx ? 'ipx' : '' }}"
+            )
+              view 下滑探索
+              view.icon.icon-arrow.icon-arrow-down
+      //- 第二屏 产品列表
+      swiper-item(
+          class="swiper-item"
+      )
+        view.content-second
+          image(
+                src="../../assets/images/banner.jpg"
+                mode="widthFix"
+          )
+
 w-loading(
   show="{{$show}}"
+)
+w-sheet(
+  visible="{{ visible }}"
+  actions="{{ actions }}"
+  show-cancel
+  bind:cancel="handleCancel"
+  bind:click="handleClickItem" 
 )

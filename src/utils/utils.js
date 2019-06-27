@@ -177,7 +177,6 @@ const debounce = (func, wait, immediate) => {
 /**
  *判断是否是Ipx
  */
-
 const isIpx = () => {
   const model = wx.getSystemInfoSync().model;
   const ipx = 'iPhone X';
@@ -189,16 +188,42 @@ const isIpx = () => {
  */
 const randomId = () => Math.random().toString(36).substr(2)
 
-const currency = (value) => {
-  if (typeof value === 'string') value = parseFloat(value)
-  if (isNaN(value)) return value
-  return `￥${value.toFixed(2).toString().replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,')}`
-}
 /**
  * 判断手机系统
  */
 const getPlatform = () => {
   return wx.getSystemInfoSync().platform
+}
+
+
+/**
+ * 判断SDK版本
+ * @param {*} v1  小程序SDK最低版本
+ * @param {*} v2  用户小程序SDK版本
+ */
+const compareVersion = (v1, v2) => {
+  v1 = v1.split('.')
+  v2 = v2.split('.')
+  let len = Math.max(v1.length, v2.length)
+
+  while (v1.length < len) {
+    v1.push('0')
+  }
+  while (v2.length < len) {
+    v2.push('0')
+  }
+
+  for (let i = 0; i < len; i++) {
+    let num1 = parseInt(v1[i])
+    let num2 = parseInt(v2[i])
+
+    if (num1 > num2) {
+      return 1
+    } if (num1 < num2) {
+      return -1
+    }
+  }
+  return 0
 }
 
 
@@ -213,6 +238,6 @@ export default {
   combinUrl,
   isIpx,
   randomId,
-  currency,
-  getPlatform
+  getPlatform,
+  compareVersion
 };

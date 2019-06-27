@@ -240,7 +240,7 @@ T.init = function() {
 T.dataQueue = T.autoSendQueue()
 
 T.send = function(options, api) {
-  let url = `${baseUrl}'-tracking'${api}`
+  let url = `${baseUrl}estore-tracking${api}`
   let instance = new T.requestQueue(url, options)
   instance.close = function() {
     T.dataQueue.close()

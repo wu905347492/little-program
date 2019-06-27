@@ -1,0 +1,38 @@
+view(
+  class="i-as-mask i-class-mask {{ visible ? 'i-as-mask-show' : '' }}"
+  bindtap="handleClickMask"
+)
+view(
+  class="i-class i-as {{ visible ? 'i-as-show' : '' }}"
+)
+  view(
+    class="i-class i-as {{ visible ? 'i-as-show' : '' }}"
+  )
+    slot(name="header")
+  view(class="i-as-actions")
+    view(
+      class="i-as-action-item"
+      wx:for="{{ actions }}"
+      wx:key="{{ item.name }}"
+    )
+      button(
+        data-index="{{ index }}"
+        open-type="{{ item.openType }}"
+        bindtap="handleClickItem"
+        bindcontact="handleClickItem"
+      )
+        view(
+          class="i-as-btn-loading"
+          wx:if="{{ item.loading }}"
+        )
+        view(
+          class="i-as-btn-text"
+          style="{{ item.color ? 'color: ' + item.color : '' }}"
+        ) {{ item.name }}
+  view(
+    class="i-as-cancel"
+    wx:if="{{ showCancel }}"
+  )
+    button(
+      bindtap="handleClickCancel"
+    ) {{ cancelText }}

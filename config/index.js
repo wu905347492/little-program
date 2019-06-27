@@ -2,8 +2,13 @@ const env = `${process.env.NODE_ENV || 'dev'}`
 
 const config = require(`./${env}.env.js`)
 
-config.env = env
+const wechatId = 1
 
-config.wechatId = 1
+const version = '2.2.5'
 
-module.exports = config
+module.exports = {
+  ...config,
+  env,
+  wechatId,
+  version
+}

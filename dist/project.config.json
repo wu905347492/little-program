@@ -9,7 +9,7 @@
 		"uglifyFileName": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.6.0",
 	"appid": "wx7fc9a5b3b12834dd",
 	"projectname": "miniapp-base-estore",
 	"miniprogramRoot": "app/",
