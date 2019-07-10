@@ -1,6 +1,6 @@
 import storage from './storage';
 
-const PREFIX = 'D1M_';
+const PREFIX = '_';
 
 export default {
   // 用户token
