@@ -10,7 +10,7 @@
     "uat": "cross-env NODE_ENV=uat node build/exec.js",
     "prod": "cross-env NODE_ENV=prod node build/exec.js"
   },
-  "author": "Tee Jay <tjeeay@outlook.com>",
+  "author": "Stephen Woo",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
